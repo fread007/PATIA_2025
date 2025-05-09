@@ -8,7 +8,9 @@ Pour compiler et lancer :
 
 -mvn package  
 
--./resolution.sh <nom du fichier de terrain en .json qui sont dans config/> <nom que l'on souhaite donner au fichier pddl>  
+-./resolution.sh <nom du fichier de terrain en .json qui sont dans config/> <nom que l'on souhaite donner au fichier pddl> 
+
+-Ensuite il suffit d'aller sur un navigateur internet et d'aller a l'adresse http://localhost:4200/
 
 
 
