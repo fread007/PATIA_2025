@@ -1,33 +1,15 @@
-Play the game on [CodinGame](https://www.codingame.com/training/hard/sokoban)
+#TP3
 
-Maven is needed.
+Pour compiler et lancer :
 
-Install pddl4j (https://github.com/pellierd/pddl4j) in your local maven repo:
-```
-mvn install:install-file \
-   -Dfile=<path-to-file-pddl4j-4.0.0.jar> \
-   -DgroupId=fr.uga \
-   -DartifactId=pddl4j \
-   -Dversion=4.0.0 \
-   -Dpackaging=jar \
-   -DgeneratePom=true
- ```  
-Work with maven: mvn clean, mvn compile, mvn test, mvn package
+-mvn clean  
 
-Run with: 
-````
-java --add-opens java.base/java.lang=ALL-UNNAMED \
-      -server -Xms2048m -Xmx2048m \
-      -cp "$(mvn dependency:build-classpath -Dmdep.outputFile=/dev/stdout -q):target/test-classes/:target/classes" \
-      sokoban.SokobanMain
-````
-or (after mvn package)
-```
-java --add-opens java.base/java.lang=ALL-UNNAMED \
-      -server -Xms2048m -Xmx2048m \
-      -cp target/sokoban-1.0-SNAPSHOT-jar-with-dependencies.jar \
-      sokoban.SokobanMain
-```
-Sorry ```mvn exec:java``` has still an open issue ("Directory src/main/resources/view/assets not found.")
+-mvn install:install-file -Dfile=libs/pddl4j-4.0.0.jar -DgroupId=fr.uga -DartifactId=pddl4j -Dversion=4.0.0 -Dpackaging=jar -DgeneratePom=true  
 
-See planning solutions at http://localhost:8888/test.html
+-mvn package  
+
+-./resolution.sh <nom du fichier de terrain en .json qui sont dans config/> <nom que l'on souhaite donner au fichier pddl>  
+
+
+
+Pour le fonctionnement, on commence par fournir le fichier JSON au parseur Json_Pddl, qui va le transformer en un fichier PDDL. Ce fichier est ensuite traité par PDDL4J pour être résolu. Enfin, les mouvements sont extraits à l'aide du fichier extract.py, puis transmis au jeu Sokoban via le fichier Agent.java.

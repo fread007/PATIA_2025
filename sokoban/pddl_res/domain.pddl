@@ -16,7 +16,11 @@
     :effect 
     (and 
       (not (Pon ?x))
-      (Pon ?y)))
+      (Pon ?y)
+      (clear ?x)
+      (not (clear ?y)))
+  )
+
 
     (:action moveD
     :parameters (?x - lieu ?y - lieu)
@@ -24,7 +28,11 @@
     :effect 
     (and 
       (not (Pon ?x))
-      (Pon ?y)))
+      (Pon ?y)
+      (clear ?x)
+      (not (clear ?y)))
+    )
+    
     
     (:action moveR
     :parameters (?x - lieu ?y - lieu)
@@ -32,7 +40,10 @@
     :effect 
     (and 
       (not (Pon ?x))
-      (Pon ?y)))
+      (Pon ?y)
+      (clear ?x)
+      (not (clear ?y)))
+    )
 
     (:action moveL
     :parameters (?x - lieu ?y - lieu)
@@ -40,10 +51,13 @@
     :effect 
     (and 
       (not (Pon ?x))
-      (Pon ?y)))
+      (Pon ?y)
+      (clear ?x)
+      (not (clear ?y)))
+    )
 
     (:action pushU
-        :parameters (?x - lieu ?y - lieu ?z -lieu)
+        :parameters (?x - lieu ?y - lieu ?z - lieu)
         :precondition (and 
             (Pon ?x)
             (Con ?y)
@@ -52,15 +66,17 @@
             (connectU ?y ?z)
         )
         :effect (and 
+            (clear ?x)
             (not (Pon ?x))
             (not (Con ?y))
             (Pon ?y)
             (Con ?z)
+            (not (clear ?z))
         )
     )
 
     (:action pushD
-        :parameters (?x - lieu ?y - lieu ?z -lieu)
+        :parameters (?x - lieu ?y - lieu ?z - lieu)
         :precondition (and 
             (Pon ?x)
             (Con ?y)
@@ -69,15 +85,17 @@
             (connectD ?y ?z)
         )
         :effect (and 
+            (clear ?x)
             (not (Pon ?x))
             (not (Con ?y))
             (Pon ?y)
             (Con ?z)
+            (not (clear ?z))
         )
     )
 
     (:action pushL
-        :parameters (?x - lieu ?y - lieu ?z -lieu)
+        :parameters (?x - lieu ?y - lieu ?z - lieu)
         :precondition (and 
             (Pon ?x)
             (Con ?y)
@@ -86,15 +104,17 @@
             (connectL ?y ?z)
         )
         :effect (and 
+            (clear ?x)
             (not (Pon ?x))
             (not (Con ?y))
             (Pon ?y)
             (Con ?z)
+            (not (clear ?z))
         )
     )
 
     (:action pushR
-        :parameters (?x - lieu ?y - lieu ?z -lieu)
+        :parameters (?x - lieu ?y - lieu ?z - lieu)
         :precondition (and 
             (Pon ?x)
             (Con ?y)
@@ -103,10 +123,12 @@
             (connectR ?y ?z)
         )
         :effect (and 
+            (clear ?x)
             (not (Pon ?x))
             (not (Con ?y))
             (Pon ?y)
             (Con ?z)
+            (not (clear ?z))
         )
     )
 
