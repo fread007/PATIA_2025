@@ -11,6 +11,6 @@ Liste des TP realisé :
 
 -TP1  
 -TP2  
--TP3 (dans le fichier sokoban)  
+-TP3 (dans le dossier sokoban)  
 
 Pour le TP4, nous n’avons malheureusement pas réussi à faire fonctionner notre encodeur. Nous avons donc préféré ne pas rendre un code non fonctionnel.
